@@ -1,0 +1,24 @@
+.languages-list {
+  display: flex;
+
+  @include list-reset;
+  font-size: 23px;
+}
+
+.languages-list__item {
+  margin: 0 5px;
+
+  a {
+    display: block;
+    padding: 5px;
+    color: $color-text;
+    opacity: 0.5;
+  }
+}
+
+.languages-list__item.active {
+  a {
+    opacity: 1;
+    font-weight: 500;
+  }
+}

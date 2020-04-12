@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./html-partials/basic/head.html')
+
+<body>
+
+  @@include('./html-partials/sections/main/page-header.html')
+
+  <!-- Main Page Content
+  ================================================== -->
+  <main>
+
+
+
+  </main> <!-- /.page-content -->
+
+  @@include('./html-partials/sections/main/page-footer.html')
+
+  <!-- Java Script
+  ================================================== -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/svgxuse.js" defer></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+
+    $(document).ready(function () {
+      document.querySelector("body").style.height = window.innerHeight + 'px';
+    })
+  </script>
+
+
+</body>
+
+</html>

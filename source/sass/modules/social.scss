@@ -1,0 +1,18 @@
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include list-reset;
+  margin: 0 -20px;
+}
+
+.social__item {
+  margin: 0 20px;
+}
+
+.social__link:hover {
+  .social__icon {
+    -webkit-animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}

@@ -1,0 +1,24 @@
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+
+  background-color: rgba(#000000, 1);
+
+  // opacity: 0;
+
+  transition: 0.4s opacity linear;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+}
+
+@media(min-width: $desktop_xs) {
+  .menu-overlay {
+    background-color: rgba(#000000, 0.85);
+  }
+}

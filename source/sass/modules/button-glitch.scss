@@ -1,0 +1,122 @@
+.button-glitch {
+  max-width: 100%;
+}
+
+.button-glitch {
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.button-glitch:focus:before,
+.button-glitch:hover:before {
+  -webkit-animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.button-glitch:focus:after,
+.button-glitch:hover:after {
+  -webkit-animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+.button-glitch:focus .button-glitch__inner,
+.button-glitch:hover .button-glitch__inner {
+  -webkit-animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.button-glitch:after,
+.button-glitch:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+}
+
+.button-glitch:before {
+  background: #ED0302;
+  z-index: -1;
+}
+
+.button-glitch:after {
+  background: #004ED8;
+  z-index: -2;
+}
+
+.button-glitch .button-glitch__inner {
+  display: block;
+  padding: 10px 15px;
+  background: #fff;
+  -webkit-transition: -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@-webkit-keyframes glitch {
+
+  0%,
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch {
+
+  0%,
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+}
+
+// glitch-button {
+//   text-transform: uppercase;
+//   font-weight: bold;
+//   text-align: center;
+// }

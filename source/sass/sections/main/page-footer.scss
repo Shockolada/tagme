@@ -1,0 +1,28 @@
+.page-footer__wrap {
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+
+  bottom: 0;
+  padding: 0;
+  padding-bottom: 30px;
+}
+
+.page-footer {}
+
+.page-footer__theme-trigger {
+  display: none;
+}
+
+@media (min-width: $desktop_xs) {
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-footer__theme-trigger {
+    display: block;
+  }
+}

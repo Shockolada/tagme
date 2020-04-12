@@ -1,0 +1,21 @@
+.theme-btn {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+
+  span {
+    margin: 0 15px;
+  }
+}
+
+.theme-btn:hover {
+  svg {
+    -webkit-animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}

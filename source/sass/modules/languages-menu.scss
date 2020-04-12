@@ -1,0 +1,27 @@
+.langs-menu {
+  position: relative;
+}
+
+.langs-menu__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  padding: 5px;
+  border: none;
+  font-size: 23px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.langs-menu__panel {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s opacity linear, 0.4s visibility linear;
+}
+
+
+.langs-menu__panel.active {
+  visibility: visible;
+  opacity: 1;
+}
