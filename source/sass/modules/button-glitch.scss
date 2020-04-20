@@ -47,9 +47,9 @@
   z-index: -2;
 }
 
-.button-glitch .button-glitch__inner {
+.button-glitch__inner {
   display: block;
-  padding: 10px 15px;
+  padding: 15rem 20rem;
   background: #fff;
   -webkit-transition: -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -57,66 +57,28 @@
   transition: filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@-webkit-keyframes glitch {
+.button-glitch--0 {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
 
-  0%,
-  100% {
-    -webkit-transform: translate(0);
-    transform: translate(0);
+  .button-glitch__inner {
+    background: transparent;
   }
 
-  20% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-
-  40% {
-    -webkit-transform: translate(-2px, -2px);
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    -webkit-transform: translate(2px, 2px);
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    -webkit-transform: translate(2px, -2px);
-    transform: translate(2px, -2px);
+  &::before,
+  &::after {
+    opacity: 0;
   }
 }
 
-@keyframes glitch {
-
-  0%,
-  100% {
-    -webkit-transform: translate(0);
-    transform: translate(0);
+.button-glitch--0:hover {
+  .button-glitch__inner {
+    background: #000000;
   }
 
-  20% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-
-  40% {
-    -webkit-transform: translate(-2px, -2px);
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    -webkit-transform: translate(2px, 2px);
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    -webkit-transform: translate(2px, -2px);
-    transform: translate(2px, -2px);
+  &::before,
+  &::after {
+    opacity: 1;
   }
 }
-
-// glitch-button {
-//   text-transform: uppercase;
-//   font-weight: bold;
-//   text-align: center;
-// }

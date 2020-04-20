@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./html-partials/basic/head.html')
+
+<body>
+
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
+  @@include('./html-partials/sections/main/page-header.html')
+
+  <!-- Main Page Content
+  ================================================== -->
+  <main>
+    <form class="form quiz-form" action="/">
+      <section class="container quiz step active">
+        <div class="quiz__content">
+          <div class="quiz__steps-counter">1/4</div>
+          <h1 class="quiz__subtitle">Что у вас за бизнес и с чем это едят?</h1>
+          <div class="quiz-form__input-group">
+            <p class="form__item">
+              <input type="text" name="" placeholder="Название компании">
+            </p>
+            <p class="form__item">
+              <input type="text" name="" placeholder="Чем занимается вашакомпания?">
+            </p>
+            <p class="form__item">
+              <textarea name="" placeholder="Укажите ссылки на сайт проекта и социальные сети"></textarea>
+            </p>
+          </div>
+          <div class=" quiz__btns quiz__btns--m-auto">
+            <button class="button button-glitch quiz__btn quiz__btn-next nextStep" type="button"><span
+                class="button-glitch__inner">Дальше</span></button>
+          </div>
+        </div>
+
+        <div class="quiz__img-side">
+          <img src="img/quiz/spoon.png" alt="Lion picture">
+        </div>
+      </section>
+
+      <section class="container quiz step">
+        <div class="quiz__content">
+          <div class="quiz__steps-counter">2/4</div>
+          <h2 class="quiz__subtitle">Выберите какие бизнес задачи вы хотите решить с нашей помощью:</h2>
+          <div class="quiz__step-info">
+            <span>выберите один или несколько</span>
+          </div>
+          <div class="quiz__check-fields form__fields">
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Увеличить продажи</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Повысить узнаваемость бренда</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Запустить новый продукт</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Управление репутацией бренда</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Ребрендинг компании, продукта</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Аутсорсинг маркетинга</label>
+            </p>
+          </div>
+          <div class=" quiz__btns ">
+            <button class="quiz__btn quiz__btn-prev prevStep" type="button"><span
+                class="quiz__btn-prev-text">Назад</span></button>
+            <button class="button button-glitch quiz__btn quiz__btn-next nextStep" type="button"><span
+                class="button-glitch__inner">Дальше</span></button>
+          </div>
+        </div>
+
+        <div class="quiz__img-side">
+          <img src="img/quiz/bird-cage.png" alt="Bird cage">
+        </div>
+      </section>
+
+      <section class="container quiz step scroll-mobile">
+        <div class="quiz__content quiz__content-100">
+          <div class="quiz__steps-counter">3/4</div>
+          <h1 class="quiz__subtitle">Выберите интересующие вас услуги:</h1>
+          <div class="quiz__step-info">
+            <span>выберите один или несколько</span>
+          </div>
+          <div class="quiz__check-fields quiz__check-fields--two-cols form__fields">
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                SMM – маркетинг в социальных сетях</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Маркетинг – комплексный маркетинг для вашего бизнеса</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Стратегия и аналитика – разработка маркетинговой стратегии, на основе анализа целевого рынка.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Креативный концепт – разработка креативного концепта рекламной кампании, мероприятия и др.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Ивенты – организация и проведение мероприятий</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Нейминг - разработка названия компании, бренда, торговой марки, продукта или услуг</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Копирайтинг – услуга по написанию текстов для сайта, статей и др.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Фото – предметная, студийная и репортажная фотосъемка вашего продукта / услуги</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Видео продакшн – полный цикл услуг по созданию рекламных, корпоративных, имиджевых видео для вашего
+                бизнеса, от написания сценария до монтажа.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Motion design – графика движения / анимационный дизайн</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Иллюстрация – отрисовка векторных иллюстраций</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Лого – разработка / редизайн логотипа вашего бренда</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Брендинг – разработка брендбука, фирменного стиля, упаковки продукта, слогана и др.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Дизайн – графический дизайн, дизайн печатных материалов, наружной рекламы и др.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                UX & UI - это проектирование и дизайн интерфейса и будущего взаимодействия. Мы продумываем, как
+                пользователю добраться из пункта А в пункт Б наименьшим сопротивлением и претворяем это в жизнь.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Веб разработка – разработка сайтов, лендингов, интернет-магазинов и др.</label>
+            </p>
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                Industrial design – услуги промышленного дизайна</label>
+            </p>
+
+            <p class="form__check">
+              <label class="check">
+                <input type="checkbox" class="check__input">
+                <span class="check__box">
+                  <span class="check__mark"></span>
+                </span>
+                3D & Interior design – моделирование и визуализация в 3D; услуги по дизайну интерьеров</label>
+            </p>
+
+
+
+
+          </div>
+          <div class=" quiz__btns">
+            <button class="quiz__btn quiz__btn-prev prevStep" type="button"><span
+                class="quiz__btn-prev-text">Назад</span></button>
+            <button class="button button-glitch quiz__btn quiz__btn-next nextStep" type="button"><span
+                class="button-glitch__inner">Дальше</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="container quiz step">
+        <div class="quiz__content">
+          <div class="quiz__steps-counter">4/4</div>
+          <h1 class="quiz__subtitle">Желаемые сроки реализации проекта и получения финального результата</h1>
+          <div class="quiz-form__input-group">
+            <p class="form__item">
+              <input type="text" name="" placeholder="Срок">
+            </p>
+          </div>
+          <div class=" quiz__btns quiz-btns__m-100">
+            <button class="quiz__btn quiz__btn-prev prevStep" type="button"><span
+                class="quiz__btn-prev-text">Назад</span></button>
+            <button class="button button-glitch quiz__btn quiz__btn-next nextStep" type="button"><span
+                class="button-glitch__inner">Последний шаг</span></button>
+          </div>
+        </div>
+
+        <div class="quiz__img-side">
+          <img src="img/quiz/samovar.png" alt="Samovar picture">
+        </div>
+      </section>
+
+      <section class="container quiz step">
+        <div class="quiz__content">
+          <h1 class="quiz__subtitle">Заполните форму</h1>
+          <div class="quiz__step-info quiz__step-info--black">
+            <span>Мы свяжемся с Вами и вышлем коммерческое предложение.</span>
+          </div>
+          <div class="quiz-form__input-group">
+            <p class="form__item">
+              <input type="text" name="" placeholder="Имя">
+            </p>
+            <p class="form__item">
+              <input type="text" name="" placeholder="Введите e-mail">
+            </p>
+            <p class="form__item">
+              <input type="text" name="" placeholder="Номер телефона">
+            </p>
+          </div>
+          <div class=" quiz__btns quiz__btns--m-auto quiz-btns__m-100">
+            <button class="button button-glitch quiz__btn quiz__btn-next" type="submit"><span
+                class="button-glitch__inner">Получить кп</span></button>
+          </div>
+        </div>
+
+        <div class="quiz__img-side">
+          <img src="img/quiz/bagels.png" alt="Bagels picture">
+        </div>
+      </section>
+
+    </form>
+  </main> <!-- /.page-content -->
+
+  @@include('./html-partials/sections/main/cookies.html')
+
+  <!-- Java Script
+  ================================================== -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/svgxuse.js" defer></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

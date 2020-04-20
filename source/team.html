@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./html-partials/basic/head.html')
+
+<body class="">
+
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
+  @@include('./html-partials/sections/main/page-header.html')
+
+  <!-- Main Page Content
+  ================================================== -->
+  <main>
+
+    <section class="team container">
+      <h1 class="team__title">Команда</h1>
+      <div class="team__description">
+        <p><b>Иисус Христос — лучший в мире рекламист, автор многочисленных бессмертных слоганов, ах нет, пардон, мы
+            можем лучше.</b></p>
+        <p>Мы — креативная студия полного цикла. Наша работа заключается в том, чтобы найти наиболее результативный и
+          красивый способ решения задач. Наши конкуренты — не студии или агентства, а рамки в головах у людей,
+          индифферентность и нерешительность. Нас заводят люди, готовые менять то, что давно устарело.</p>
+      </div>
+      <div class="team-list__wrap">
+        <div class="swiper-container team__list teamSlider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Alex 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Kristina.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/chuc 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Mary 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/july 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Nikita_Juraveli 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Iana.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Sasha.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Egor.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Xenia.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Katya 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Vera.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Anita 1.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Nikita.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Lipa.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/ana.jpg" alt="">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/team/Pavel.jpg" alt="">
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main> <!-- /.page-content -->
+
+  @@include('./html-partials/sections/main/page-footer.html')
+
+  @@include('./html-partials/sections/main/cookies.html')
+
+  <!-- Java Script
+  ================================================== -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/svgxuse.js" defer></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var windowWidth = 0;
+      getWinWidth();
+      $(window).resize(getWinWidth);
+
+      function getWinWidth() {
+        windowWidth = $(window).outerWidth();
+      }
+
+      var IsMobileWidth = 'isMobile';
+      var IsDesktopWidth = 'isDesktop';
+      var deviceWidth = getDeviceWidth();
+
+      function getDeviceWidth() {
+        console.log(windowWidth)
+        if (windowWidth < 500) {
+          return IsMobileWidth;
+        } else if (windowWidth >= 500) {
+          return IsDesktopWidth;
+        }
+      }
+
+      var teamSleder = new Swiper('.teamSlider', {
+        init: false,
+      });
+
+      function refreshSlider() {
+        if (deviceWidth === IsMobileWidth) {
+          if (teamSleder.params.init) {
+            teamSleder.destroy();
+          }
+        } else if (deviceWidth === IsDesktopWidth) {
+          teamSleder = new Swiper('.teamSlider', {
+            slidesPerView: 6,
+            spaceBetween: 30,
+            freeMode: true,
+            mousewheel: {
+              releaseOnEdges: true
+            },
+            breakpoints: {
+              500: {
+                slidesPerView: 5,
+              },
+              // 1440: {
+              //   slidesPerView: 4,
+              // },
+              // 940: {
+              //   slidesPerView: 3,
+              // },
+              // 700: {
+              //   slidesPerView: 2,
+              // },
+            }
+          });
+        }
+      }
+
+      refreshSlider();
+      $(window).resize(function () {
+        if (deviceWidth != getDeviceWidth()) {
+          deviceWidth = getDeviceWidth();
+          refreshSlider();
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

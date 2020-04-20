@@ -1,4 +1,5 @@
 @import "variables/variables.scss";
+@import "variables/colors.scss";
 
 @import "functions/strip-units.scss";
 @import "functions/calc-responsive-size.scss";
@@ -25,16 +26,26 @@
 @import "helpers/theme-dark.scss";
 @import "helpers/theme-light.scss";
 @import "helpers/overlay.scss";
+@import "helpers/full-screen-page.scss";
+@import "helpers/fancybox-styles.scss";
+@import "helpers/form.scss";
+@import "helpers/step.scss";
+@import "helpers/animations.scss";
+@import "helpers/text-content.scss";
 
 /* MODULES */
 @import "modules/burger-btn.scss";
 @import "modules/close-btn.scss";
 @import "modules/button-glitch.scss";
+@import "modules/check.scss";
 @import "modules/logo.scss";
 @import "modules/social.scss";
 @import "modules/theme-btn.scss";
 @import "modules/languages-menu.scss";
 @import "modules/languages-list.scss";
+@import "modules/preloader.scss";
+@import "modules/cookies.scss";
+@import "modules/to-top.scss";
 
 /* SECTIONS */
 @import "sections/main/page-header.scss";
@@ -45,6 +56,17 @@
 @import "sections/full-screen-slider.scss";
 @import "sections/service.scss";
 @import "sections/services.scss";
+@import "sections/works.scss";
+@import "sections/shop.scss";
+@import "sections/vacancies.scss";
+@import "sections/vacancy.scss";
+@import "sections/team.scss";
+@import "sections/modal-form.scss";
+@import "sections/contacts.scss";
+@import "sections/clients.scss";
+@import "sections/quiz.scss";
+@import "sections/quiz-form.scss";
+@import "sections/project.scss";
 
 
 @import "sections/main/page-footer.scss";

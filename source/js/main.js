@@ -1,17 +1,55 @@
-/* MENU */
-$(document).ready(function () {
-  var menu = $('.mobileMenu');
-  var menuToggle = $('.menuToggleBtn');
+const THEME_KEY = 'theme';
+const THEMES = {
+  light: 'light',
+  dark: 'dark'
+}
+let localTheme = localStorage.getItem(THEME_KEY);
+if (localTheme != null) {
+  if (localTheme === THEMES.dark) {
+    $('html').attr('data-theme-dark', 'true');
+  }
+}
 
-  menuToggle.click(function (evt) {
-    evt.preventDefault();
-    $(this).toggleClass('active');
-    menu.toggleClass('active');
-  });
+/* Preloader */
+$(window).on('load', function () {
+  setTimeout(function () {
+    $('.preloader').fadeOut().fadeOut(200);
+  }, 1200);
 });
 
-/* HEADER */
 $(document).ready(function () {
+  var port = "port";
+  var land = "land";
+  var orientationNow = getOrientation();
+
+  function getOrientation() {
+    if (window.innerHeight > window.innerWidth) {
+      return port;
+    } else {
+      return land;
+    }
+  }
+
+  /* MENU */
+  $('.openMenu').click(function (evt) {
+    evt.preventDefault();
+    if (!$('.menu').hasClass('active')) {
+      $(this).addClass('active');
+      openActiveElement('.menu');
+    } else if ($('.menu').hasClass('active')) {
+      $(this).removeClass('active');
+      closeActiveElement();
+      $('.menu').removeClass('active');
+    }
+  });
+
+  $('.menu__overlay').click(function () {
+    $('.menu').removeClass('active')
+    $('.openMenu').removeClass('active')
+    closeActiveElement();
+  });
+
+  /* HEADER */
   $(window).on('scroll', function () {
     if ($(window).scrollTop() > 150) {
       $('.page-header__wrap').addClass('scrolled');
@@ -19,63 +57,149 @@ $(document).ready(function () {
       $('.page-header__wrap').removeClass('scrolled');
     }
   });
-});
 
-$(document).ready(function () {
-
+  /* Languages */
   $('.langsTrigger').click(function (evt) {
     evt.preventDefault();
     $(this).hide();
     $('.langsPanel').addClass('active');
   });
 
-  $('.languages-list__item a').click(function (evt) {
+  $('.languages-list__item a').click(function () {
     $(this).closest('.langsPanel').removeClass('active');
-    setTimeout(function(){
+    setTimeout(function () {
       $('.langsTrigger').fadeIn(100);
     }, 200);
   });
 
-  $('.openMenu').click(function (evt) {
-    evt.preventDefault()
+  /* Theme */
+  bindClick();
+  function bindClick() {
+    $('.theme-btn--swing').one("click", function () {
+      $(this).addClass('active');
+      swingTimeId = setTimeout(function () {
+        $('.theme-btn--swing').removeClass('active');
+      }, 1990);
+      setTimeout(bindClick, 2000);
+    });
+  }
+
+  $('.theme-btn').click(function (evt) {
+    evt.preventDefault();
+    toggleTheme();
+  });
+  function toggleTheme() {
+    console.log($('html').attr('data-theme-dark'))
+    if ($('html').attr('data-theme-dark') != null) {
+      $('html').removeAttr('data-theme-dark');
+      localStorage.setItem(THEME_KEY, THEMES.light);
+    } else {
+      $('html').attr('data-theme-dark', 'true');
+      localStorage.setItem(THEME_KEY, THEMES.dark);
+    }
+  }
+
+  /* To top */
+  $('.toTop').click(function (evt) {
+    evt.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0
+    }, 400);
+    return false;
+  });
+
+  /* Vacancies */
+  $('.openVacancyInfo').click(function (evt) {
+    evt.preventDefault();
+    $('.openVacancyInfo').removeClass('active')
+    $('.vacancy').removeClass('active')
     $(this).addClass('active');
-    $('.menu').addClass('active')
+    var vacancyId = $(this).data('id');
+    var vacancyInfo = $('#' + vacancyId);
+    if (orientationNow === port) {
+      $('.vacancies__list').addClass('hidden');
+    }
+    $('.vacancies__inner').addClass('active');
+    $('.vacancies__img-side').addClass('hidden');
+    $(this).closest('.full-screen-page').addClass('scroll-mobile')
+
+    vacancyInfo.addClass('active')
   });
 
-  $('.menuClose').click(function (evt) {
-    evt.preventDefault()
-    $('.menu').removeClass('active')
-    $('.openMenu').removeClass('active')
+  $('.hideVacancyInfo').click(function (evt) {
+    evt.preventDefault();
+
+    $('.vacancy').removeClass('active');
+    if (orientationNow === port) {
+      $('.vacancies__list').removeClass('hidden');
+    }
+    $('.vacancies__img-side').removeClass('hidden');
+    $('.full-screen-page').animate({
+      scrollTop: 0
+    }, 100);
+    $(this).closest('.full-screen-page').removeClass('scroll-mobile')
+    $('.vacancies__inner').removeClass('active');
   });
 
-  $('.menu__overlay').click(function (evt) {
-    evt.preventDefault()
-    $('.menu').removeClass('active')
-    $('.openMenu').removeClass('active')
+  $(window).on("resize", function () {
+
   });
+
+  /* Quiz steps */
+  $('.step .nextStep').click(function (evt) {
+    evt.preventDefault();
+    $('.preloader').show();
+    setTimeout(function () {
+      $('.preloader').fadeOut().fadeOut(200);
+    }, 1000);
+    $(this).closest('.step').removeClass('active').next('.step').addClass('active');
+  })
+
+  $('.step .prevStep').click(function (evt) {
+    evt.preventDefault();
+    $('.preloader').show();
+    setTimeout(function () {
+      $('.preloader').fadeOut().fadeOut(200);
+    }, 1000);
+    $(this).closest('.step').removeClass('active').prev('.step').addClass('active');
+  })
+
+  /* Functions */
+  function openActiveElement(selector) {
+    // $('html').addClass('no-scroll');
+    // $('body').addClass('no-scroll');
+    $(selector).addClass('active');
+    scrollLock(selector);
+  };
+
+  function closeActiveElement() {
+    // compensateScrollbar('body')
+    $('.overlay').removeClass('active');
+    // $('html').removeClass('no-scroll');
+    // $('body').removeClass('no-scroll');
+    bodyScrollLock.clearAllBodyScrollLocks();
+  };
+
+  function scrollLock(selector) {
+    return bodyScrollLock.disableBodyScroll(document.querySelector(selector));
+  }; // iOS blocking body scroll function.
+
+  // function isMobile() {
+  //   var isMobile = false;
+  //   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  //     isMobile = true
+  //   }
+  //   return isMobile
+  // }
+
+  // if (isMobile()) {
+  // }
+
+
+  // console.log(isMobile())
+
+  // function compensateScrollbar(selector) {
+  //   var scrollWidth = (window.innerWidth - document.documentElement.clientWidth);
+  //   selector.css('padding','+scrollWidth+')
+  // }
 });
-
-
-
-
-
-// function scrollLock(selector) {
-//   return bodyScrollLock.disableBodyScroll(document.querySelector(selector));
-//   }; // iOS blocking body scroll function.
-//   scrollLock('element');
-//   bodyScrollLock.clearAllBodyScrollLocks();
-
-// // 1. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav).
-// // Specifically, the target element is the one we would like to allow scroll on (NOT a parent of that element).
-// // This is also the element to apply the CSS '-webkit-overflow-scrolling: touch;' if desired.
-// const targetElement = document.querySelector('#someElementId');
-
-// // 2. ...in some event handler after showing the target element...disable body scroll
-// bodyScrollLock.disableBodyScroll(targetElement);
-
-// // 3. ...in some event handler after hiding the target element...
-// bodyScrollLock.enableBodyScroll(targetElement);
-
-// // 4. Useful if we have called disableBodyScroll for multiple target elements,
-// // and we just want a kill-switch to undo all that.
-// bodyScrollLock.clearAllBodyScrollLocks();

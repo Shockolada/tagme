@@ -1,35 +1,36 @@
 .services__wrap {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: #ffffff;
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // align-items: center;
+  padding-top: 90rem;
+  padding-bottom: 90rem;
+  background-color: #ffffff;
+  height: 100%;
+  overflow: hidden;
 }
 
 .services__btn {
   position: relative;
   z-index: 10;
   align-self: center;
+  margin-top: 10rem;
 }
 
 .services__list {
   @include list-reset;
   columns: 2;
-  font-size: 18px;
+  font-size: 18rem;
+  // margin-bottom: -30rem;
 }
 
 .services__items-group {
-  margin-bottom: 20px;
+  margin-bottom: 20rem;
   break-inside: avoid;
 }
 
 .services__item {
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 6rem;
   cursor: default;
 }
 
@@ -37,53 +38,18 @@
   font-weight: 700;
 }
 
-@media (min-width: $mobile_m) {
-  .services__wrap {
-    justify-content: center;
+@media (orientation: landscape) {
+  .services__list {
+    font-size: 36rem;
+    columns: 3;
+    column-gap: 186rem;
   }
 
   .services__items-group {
-    margin-bottom: 30px;
-  }
-
-  .services__list {
-    @include responsiveFontSize(20, 36);
+    margin-bottom: 80rem;
   }
 
   .services__item {
-    margin-bottom: 10px;
-  }
-
-  .services__btn {
-    margin-top: calcResponsiveSize(1, 60);
-  }
-}
-
-@media (min-width: $desktop_xs) {
-  .services__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-
-  .services__list {
-    columns: 3;
-    column-gap: 30px;
-  }
-}
-
-@media (min-width: $desktop_s) {
-  .services__list {
-    column-gap: 80px;
-  }
-}
-
-@media (min-width: $desktop_m) {
-  .services__list {
-    column-gap: 100px;
+    margin-bottom: 25rem;
   }
 }

@@ -26,6 +26,6 @@ $font: "Raleway", "Arial", sans-serif;
 
 
 // COLORS
-$color-text: #000000;
-$color-white: #ffffff;
+$color-text: var(--color-text);
+$color-white: #181212;
 $color-accent: #ffd700;

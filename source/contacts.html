@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./html-partials/basic/head.html')
+
+<body>
+
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
+  @@include('./html-partials/sections/main/page-header.html')
+
+  <!-- Main Page Content
+  ================================================== -->
+  <main>
+
+    <section class="contacts__wrap container full-screen-page">
+      <div class="contacts full-screen-page__content">
+        <h1 class="title contacts__title">Контакты</h1>
+        <span class="contacts__row">Молдова, Кишинёв</span>
+        <span class="contacts__row">Михай Еминеску, 36</span>
+        <span class="contacts__row">
+          <a href="tel:+37369505096">+373 69 50 50 96</a>
+        </span>
+      </div>
+
+      <div class="full-screen-page__img-side contacts__img">
+        <img src="img/contacts/image.png" alt="Office">
+      </div>
+
+    </section>
+
+  </main> <!-- /.page-content -->
+
+  @@include('./html-partials/sections/main/page-footer.html')
+
+  @@include('./html-partials/sections/main/cookies.html')
+
+  <!-- Java Script
+  ================================================== -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/svgxuse.js" defer></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

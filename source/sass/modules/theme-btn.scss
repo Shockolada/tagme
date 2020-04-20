@@ -13,9 +13,14 @@
   }
 }
 
-.theme-btn:hover {
+.theme-btn--glitch:hover {
   svg {
     -webkit-animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
+}
+
+.theme-btn--swing.active {
+  transform-origin: top center;
+  animation: swing 2s ease-in-out both;
 }

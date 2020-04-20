@@ -5,15 +5,32 @@
 
 <body>
 
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
   @@include('./html-partials/sections/main/page-header.html')
 
   <!-- Main Page Content
   ================================================== -->
   <main>
+    <section class="container quiz">
+      <div class="quiz__content">
+        <h1 class="quiz__title">Превращаем креатив в бизнес результаты</h1>
+        <div class="quiz__info">
+          <p>Ответьте на несколько вопросов и получите коммерческое предложение для вашего бизнеса</p>
+        </div>
+        <a class="button button-glitch quiz__btn quiz__btn-next" href="quiz-form.html"><span class="button-glitch__inner">Начать</span></a>
+      </div>
+
+      <div class="quiz__img-side">
+        <img src="img/quiz/lion.png" alt="Lion picture">
+      </div>
+    </section>
 
   </main> <!-- /.page-content -->
 
-  @@include('./html-partials/sections/main/page-footer.html')
+  @@include('./html-partials/sections/main/cookies.html')
 
   <!-- Java Script
   ================================================== -->
@@ -22,8 +39,8 @@
   <script src="js/swiper.min.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
   <script src="js/main.js"></script>
-
 
 </body>
 

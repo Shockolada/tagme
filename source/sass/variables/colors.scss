@@ -1,0 +1,11 @@
+html {
+  --color--text: #000000;
+  --color--bg: #ffffff;
+  --color--svg: #000000;
+
+  &:not([data-page="clients"])[data-theme-dark] {
+    --color--text: #ffffff;
+    --color--bg: rgba(0, 0, 0, 0.9);
+    --color--svg: #ffffff;
+  }
+}

@@ -1,0 +1,32 @@
+.fancybox-bg {
+  background-color: #000000;
+}
+
+.fancybox-is-open .fancybox-bg {
+  opacity: 0.85;
+}
+
+.fancybox-content {
+  padding: 0;
+  position: static;
+  background-color: transparent;
+
+  .fancybox-close-small {
+    svg path {
+      fill: #ffffff;
+    }
+  }
+}
+
+.fancybox-slide--video {
+  .fancybox-content {
+    position: relative;
+  }
+}
+
+
+@media (min-width: landscape) {
+  .fancybox-slide {
+    padding: 78rem;
+  }
+}

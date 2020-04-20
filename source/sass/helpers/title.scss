@@ -1,0 +1,15 @@
+.title {
+  margin: 0;
+  margin-bottom: 40rem;
+  font-size: 70rem;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1;
+}
+
+@media (orientation: landscape) {
+  .title {
+    font-size: 100rem;
+    text-align: left;
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./html-partials/basic/head.html')
+
+<body class="">
+
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
+  @@include('./html-partials/sections/main/page-header.html')
+
+  <!-- Main Page Content
+  ================================================== -->
+  <main class="page-content">
+
+    <section class="container">
+      <div class="shop">
+        <div class="shop__content-desktop">
+          <div class="shop__content-container">
+            <div class="shop__content-inner">
+              <b class="shop__tagline">Налетай, торопись! Примеряй, постебись.</b>
+              <div class="shop__info">
+                <p>Хочешь изведать чего-нибудь неизведанненького? Заходи в нашу тайную комнату.</p>
+              </div>
+              <a class="shop__btn button button-glitch" type="button" data-fancybox data-src="#contact-modal"
+                href="javascript:;"><span class="button-glitch__inner">Напиши
+                  нам</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="shop__content-mobile shop__content-mobile-top">
+          <b class="shop__tagline">Налетай, торопись! Примеряй, постебись.</b>
+        </div>
+        <div class="shop__products">
+          <div class="shop__main-img">
+            <a data-fancybox="main" class="shop__main-img-link"
+              href="img/dark-room/photo_2020-03-12_15-31-54 1-min.png">
+              <img src="img/dark-room/photo_2020-03-12_15-31-54 1-min.png" alt="Худи “Point - one love”">
+            </a>
+          </div>
+          <ul class="shop__list">
+            <li class="shop__item">
+              <a data-fancybox="gallery" class="shop__img-link" href="img/dark-room/Rectangle-min.png">
+                <img src="img/dark-room/Rectangle-min.jpg" alt="Худи “Не лезь ко мне”">
+                <span>Худи “Не лезь ко мне”</span>
+              </a>
+            </li>
+            <li class="shop__item">
+              <a data-fancybox="gallery" class="shop__img-link" href="img/dark-room/Rectangle-4-min.png">
+                <img src="img/dark-room/Rectangle-4-min.jpg" alt="Кляп для рта “Губы”">
+                <span>Кляп для рта “Губы”</span>
+              </a>
+            </li>
+            <li class="shop__item">
+              <a data-fancybox="gallery" class="shop__img-link" href="img/dark-room/Rectangle-2-min.png">
+                <img src="img/dark-room/Rectangle-2-min.jpg" alt="Худи “Point - one love”">
+                <span>Худи “Point - one love”</span>
+              </a>
+            </li>
+            <li class="shop__item">
+              <a data-fancybox="gallery" class="shop__img-link" href="img/dark-room/Rectangle-1-min.png">
+                <img src="img/dark-room/Rectangle-1-min.jpg" alt="Плётка кожаная">
+                <span>Плётка кожаная</span>
+              </a>
+            </li>
+            <li class="shop__item">
+              <a data-fancybox="gallery" class="shop__img-link" href="img/dark-room/Rectangle-5-min.png">
+                <img src="img/dark-room/Rectangle-5-min.jpg" alt="Постер “Tagmestudio”">
+                <span>Постер “Tagmestudio”</span>
+              </a>
+            </li>
+            <li class="shop__item">
+              <a data-fancybox="gallery" class="shop__img-link" href="img/dark-room/Rectangle-3-min.png">
+                <img src="img/dark-room/Rectangle-3-min.jpg" alt="Футболка “XX”">
+                <span>Футболка “XX”</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="shop__content-mobile shop__content-mobile-bottom">
+          <div class="shop__info">
+            <p>Футболки твоей мечты больше нет в наличии?</p>
+          </div>
+          <a class="shop__btn button button-glitch" type="button" data-fancybox data-src="#contact-modal"
+            href="javascript:;"><span class="button-glitch__inner">Напиши
+              нам</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main> <!-- /.page-content -->
+
+  @@include('./html-partials/sections/main/page-footer.html')
+
+  <div id="contact-modal" class="modal-form" style="display: none;">
+    <div class="form--dark">
+      <h2 class="form__title">Напиши нам</h2>
+      <form class="form" action="/">
+        <p class="form__item">
+          <input type="text" placeholder="Имя">
+        </p>
+        <p class="form__item">
+          <input type="text" placeholder="Телефон">
+        </p>
+        <p class="form__item">
+          <input type="text" placeholder="Что понравилось?">
+        </p>
+        <div class="form__button-wrap">
+          <button class="button button-glitch button-glitch--0" type="submit"><span
+              class="button-glitch__inner">отправить</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  @@include('./html-partials/sections/main/cookies.html')
+
+  <!-- Java Script
+  ================================================== -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/svgxuse.js" defer></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

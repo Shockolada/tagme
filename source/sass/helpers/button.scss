@@ -1,7 +1,7 @@
 .button {
   display: inline-block;
-  padding: 10px 15px;
-  border: 2px solid #000000;
+  padding: 15rem 20rem;
+  border: 2.5rem solid #000000;
   cursor: pointer;
 
   text-align: center;
@@ -9,7 +9,13 @@
   text-transform: lowercase;
   font-weight: 600;
   color: $color-text;
+  font-size: 18rem;
 
   transition: 0.3s all linear;
 }
 
+@media (orientation: landscape) {
+  .button {
+    font-size: 24rem;
+  }
+}

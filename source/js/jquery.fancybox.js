@@ -52,7 +52,7 @@
     preventCaptionOverlap: true,
 
     // Should display navigation arrows at the screen edges
-    arrows: true,
+    arrows: false,
 
     // Should display counter at the top left corner
     infobar: true,
@@ -71,12 +71,12 @@
     // Buttons will be created using templates from `btnTpl` option
     // and they will be placed into toolbar (class="fancybox-toolbar"` element)
     buttons: [
-      "zoom",
+      // "zoom",
       //"share",
-      "slideShow",
+      // "slideShow",
       //"fullScreen",
       //"download",
-      "thumbs",
+      // "thumbs",
       "close"
     ],
 

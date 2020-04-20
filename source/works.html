@@ -5,17 +5,92 @@
 
 <body>
 
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
   @@include('./html-partials/sections/main/page-header.html')
 
   <!-- Main Page Content
   ================================================== -->
-  <main>
+  <main class="page-content">
 
-
+    <section class="works container">
+      <ul class="works__list">
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/gif/3-min.gif" alt="">
+            <img class="works__bg" src="img/works/01.jpg" alt="Maicom activ">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/gif/2-min.gif" alt="">
+            <img class="works__bg" src="img/works/02.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/03.jpg" alt="">
+            <img class="works__bg" src="img/works/03.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/04.jpg" alt="">
+            <img class="works__bg" src="img/works/04.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/05.jpg" alt="">
+            <img class="works__bg" src="img/works/05.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/06.jpg" alt="">
+            <img class="works__bg" src="img/works/06.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/gif/3-min.gif" alt="">
+            <img class="works__bg" src="img/works/01.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/gif/2-min.gif" alt="">
+            <img class="works__bg" src="img/works/02.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/04.jpg" alt="">
+            <img class="works__bg" src="img/works/04.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/01.jpg" alt="">
+            <img class="works__bg" src="img/works/01.jpg" alt="">
+          </a>
+        </li>
+        <li class="works__item">
+          <a class="works__link" href="project.html" target="_blank">
+            <img class="works__img" src="img/works/03.jpg" alt="">
+            <img class="works__bg" src="img/works/03.jpg" alt="">
+          </a>
+        </li>
+      </ul>
+    </section>
 
   </main> <!-- /.page-content -->
 
   @@include('./html-partials/sections/main/page-footer.html')
+
+  @@include('./html-partials/sections/main/cookies.html')
 
   <!-- Java Script
   ================================================== -->
@@ -24,14 +99,36 @@
   <script src="js/swiper.min.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
   <script src="js/main.js"></script>
+
   <script>
-
     $(document).ready(function () {
-      document.querySelector("body").style.height = window.innerHeight + 'px';
-    })
-  </script>
+      var swiper = new Swiper('#fullScreenSlider .swiper-container', {
+        direction: getDirection(),
+        initialSlide: 0,
+        spaceBetween: 0,
+        mousewheel: {
+          releaseOnEdges: true
+        },
+        speed: 700,
+        parallax: true,
+        on: {
+          resize: function () {
+            swiper.changeDirection(getDirection());
+          }
+        },
+      });
 
+      function getDirection() {
+        var windowWidth = window.innerWidth;
+        var direction = window.innerWidth <= 940 ? 'vertical' : 'horizontal';
+
+        return direction;
+      }
+    })
+
+  </script>
 
 </body>
 

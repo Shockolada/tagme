@@ -1,0 +1,136 @@
+.form {}
+
+.form__item {
+  margin: 0;
+  margin-bottom: 30rem;
+  input, textarea {
+    width: 100%;
+    padding: 5rem 0;
+    border: none;
+    border-bottom: 1px solid #999999;
+    border-radius: 0;
+    background: transparent;
+    font-size: 18rem;
+    font-weight: 400;
+    color: #000000;
+
+    transition: 0.3s border-color linear;
+
+    &::-webkit-input-placeholder {
+      color: #4c4c4c;
+      transition: 0.3s opacity linear;
+      opacity: 1;
+    }
+
+    &::-moz-placeholder {
+      color: #4c4c4c;
+      transition: 0.3s opacity linear;
+      opacity: 1;
+    }
+
+    &:-moz-placeholder {
+      color: #4c4c4c;
+      transition: 0.3s opacity linear;
+      opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+      color: #4c4c4c;
+      transition: 0.3s opacity linear;
+      opacity: 1;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #000000;
+
+    &::-webkit-input-placeholder {
+      opacity: 0;
+    }
+
+    &::-moz-placeholder {
+      opacity: 0;
+    }
+
+    &:-moz-placeholder {
+      opacity: 0;
+    }
+
+    &:-ms-input-placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+.form__check {
+  margin: 0;
+  margin-bottom: 20rem;
+}
+
+.form__title {
+  margin: 0;
+  margin-bottom: 40rem;
+  font-size: 48rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.form__button-wrap {
+  margin-top: 40rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form--dark {
+  .form__item {
+    input {
+      border-bottom: 1px solid #E5E5E5;
+      color: #ffffff;
+
+      &::-webkit-input-placeholder {
+        color: #ffffff;
+      }
+
+      &::-moz-placeholder {
+        color: #ffffff;
+      }
+
+      &:-moz-placeholder {
+        color: #ffffff;
+      }
+
+      &:-ms-input-placeholder {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .form__title {
+    color: #ffffff;
+  }
+
+
+}
+
+@media (orientation: landscape) {
+  .form__item {
+    input, textarea {
+      padding: 8rem 0;
+      font-size: 24rem;
+    }
+  }
+
+  .form__title {
+    text-align-last: left;
+  }
+
+  .form__button-wrap {
+    margin-top: 80rem;
+    justify-content: flex-start;
+  }
+}

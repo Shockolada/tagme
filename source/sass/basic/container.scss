@@ -3,17 +3,11 @@
   min-width: 320px;
   max-width: $desktop_container;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16rem;
 }
 
-@media (min-width: $desktop_s) {
+@media (min-width: $tablet_s) and (orientation: landscape) {
   .container {
-    padding: 0 60px;
-  }
-}
-
-@media (min-width: $desktop_m) {
-  .container {
-    padding: 0 78px;
+    padding: 0 78rem;
   }
 }

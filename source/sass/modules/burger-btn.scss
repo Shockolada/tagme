@@ -1,30 +1,87 @@
 .burger-btn {
+  position: relative;
+  z-index: 11;
   margin: 0;
-  padding: 5px 0;
+  padding: 0;
   border: none;
   background-color: transparent;
-  width: 30px;
-  height: 20px;
+  width: 30rem;
+  height: 30rem;
+  // min-width: 20px;
+  // min-height: 20px;
   cursor: pointer;
+  transition: 0.3s transform linear;
+}
 
-  span {
-    display: block;
+.burger-btn__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+  height: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
     width: 100%;
-    height: 2px;
+    height: 3rem;
+    min-height: 1px;
     background-color: #000000;
-    transform: scaleX(1);
-    transition: 0.5s transform linear;
-    transform-origin: left;
   }
 
-  span:first-child {
-    margin-bottom: 6px;
-    transform-origin: right;
+  &::before {
+    left: 0;
+    top: -4rem;
+    transition: 0.5s;
+  }
+
+  &::after {
+    left: 0;
+    top: 4rem;
+    transition: 0.5s;
   }
 }
 
 .burger-btn.active {
-  span {
-    transform: scaleX(0);
+  transform: scale(1.2);
+  .burger-btn__icon {
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+      background-color: #ffffff;
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(135deg);
+      background-color: #ffffff;
+
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .burger-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .burger-btn__icon {
+    width: 30px;
+
+    &::before,
+    &::after {
+      height: 2px;
+    }
+
+    &::before {
+      top: -4px;
+    }
+
+    &::after {
+      top: 4px;
+    }
   }
 }

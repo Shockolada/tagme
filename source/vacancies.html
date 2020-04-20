@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./html-partials/basic/head.html')
+
+<body>
+
+  <!-- Preloader
+  ================================================== -->
+  @@include('./html-partials/sections/main/preloader.html')
+
+  @@include('./html-partials/sections/main/page-header.html')
+
+  <!-- Main Page Content
+  ================================================== -->
+  <main>
+
+    <section class="vacancies__wrap container full-screen-page">
+      <div class="vacancies full-screen-page__content">
+        <div class="vacancies__inner">
+          <h2 class="vacancies__title">Может быть, ты?</h2>
+          <ul class="vacancies__list">
+            <li class="vacancies__item">
+              <a class="vacancies__link openVacancyInfo" href="#" data-id="developer">Веб разработчик</a>
+            </li>
+            <li class="vacancies__item">
+              <a class="vacancies__link openVacancyInfo" href="#" data-id="designer">Графический дизайнер</a>
+            </li>
+            <li class="vacancies__item">
+              <a class="vacancies__link openVacancyInfo" href="#" data-id="smm">SMM-щик</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="vacancies__content">
+        <article class="vacancy" id="developer">
+          <div class="vacancy__inner">
+
+            <h2 class="vacancy__title">Веб разработчик</h2>
+            <div class="vacancy__short-descr">
+              <p>Гуру веб-разработки и программирования, мы тебя ждём. Самое время свалить со старой скучной работы.</p>
+            </div>
+            <ul class="vacancy__info">
+              <li>Опыт работы с реальными проектами на платформе Wordpress</li>
+              <li>Базовые знания HTML, CSS, JS, PHP</li>
+              <li>Знание одного из php фреймворков (Laravel, Symfony)</li>
+              <li>Знать разницу между делать и сделать</li>
+              <li>Верстать по большому и маленькому</li>
+              <li>Участвовать в офисных мероприятиях, турниру по Mortal Kombat 11, например</li>
+            </ul>
+            <div class="vacancy__contacts">
+              <p>Если ты шаришь в вебе и подходишь нам, не стесняйся, отправь CV:</p>
+              <a href="mailto:office@tagmestudio.com">office@tagmestudio.com</a>
+            </div>
+            <a class="vacancy__back hideVacancyInfo" href="">все вакансии </a>
+          </div>
+        </article>
+        <article class="vacancy" id="designer">
+          <div class="vacancy__inner">
+
+            <h2 class="vacancy__title">Графический дизайнер</h2>
+            <div class="vacancy__short-descr">
+              <p></p>
+            </div>
+            <div class="vacancy__contacts">
+              <p>Если ты шаришь в вебе и подходишь нам, не стесняйся, отправь CV:</p>
+              <a href="mailto:office@tagmestudio.com">office@tagmestudio.com</a>
+            </div>
+            <a class="vacancy__back hideVacancyInfo" href="">все вакансии </a>
+          </div>
+        </article>
+        <article class="vacancy" id="smm">
+          <div class="vacancy__inner">
+
+            <h2 class="vacancy__title">SMM-щик</h2>
+            <div class="vacancy__short-descr">
+              <p></p>
+            </div>
+            <!-- <ul class="vacancy__info">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul> -->
+            <div class="vacancy__contacts">
+              <p>Если ты шаришь в вебе и подходишь нам, не стесняйся, отправь CV:</p>
+              <a href="mailto:office@tagmestudio.com">office@tagmestudio.com</a>
+            </div>
+            <a class="vacancy__back hideVacancyInfo" href="">все вакансии </a>
+          </div>
+        </article>
+      </div>
+      <div class="full-screen-page__img-side vacancies__img-side">
+        <img src="img/vacancies/lamp.png" alt="Gas lamp">
+      </div>
+    </section>
+
+  </main> <!-- /.page-content -->
+
+  @@include('./html-partials/sections/main/page-footer.html')
+
+  @@include('./html-partials/sections/main/cookies.html')
+
+  <!-- Java Script
+  ================================================== -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/svgxuse.js" defer></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/bodyScrollLock.min.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('html, body').addClass('no-scroll')
+    })
+
+  </script>
+
+</body>
+
+</html>

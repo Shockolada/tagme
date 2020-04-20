@@ -1,1 +1,10 @@
+.logo {
+  width: auto;
+  height: 18rem;
+}
 
+@media (orientation: landscape) {
+  .logo {
+    height: 18px;
+  }
+}

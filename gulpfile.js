@@ -76,9 +76,9 @@ gulp.task('server', function () {
   /* Следим за файлами и перезагружаем страницу если были изменения */
   gulp.watch('source/**/*.html', gulp.series('html')).on('change', server.reload);
   gulp.watch('source/js/**/*.js', gulp.series('js', 'copy')).on('change', server.reload);
-  gulp.watch('source/sass/**/*.{scss,sass}', gulp.series('styles')); // Обновление страницы браузера в задаче 'styles'
+  gulp.watch('source/sass/**/*.{scss,sass}', gulp.series('styles')).on('change', server.reload);; // Обновление страницы браузера в задаче 'styles'
   gulp.watch('source/css/**/*.css', gulp.series('copy')).on('change', server.reload);
-  gulp.watch('source/img/**/*.{png,jpg,svg}', gulp.series('imagesmin')).on('change', server.reload);
+  gulp.watch('source/img/**/*.{png,jpg,svg,gif}', gulp.series('imagesmin')).on('change', server.reload);
   gulp.watch('source/img/svg/**/*.svg', gulp.series('svgsprite', 'imagesmin')).on('change', server.reload);
   gulp.watch('source/fonts/**/*.*', gulp.series('copy')).on('change', server.reload);
 });
@@ -95,10 +95,13 @@ gulp.task("svgsprite", function () {
 
 /* MINIFY IMAGES */
 gulp.task("imagesmin", function () {
-  return gulp.src("source/img/**/*.{png,jpg,svg}")
+  return gulp.src("source/img/**/*.{png,jpg,svg,gif}")
     .pipe(newer("build/img"))                               // Пропускает только новые изображения, или если дата модификации более поздняя
     // (cache                                               //
     .pipe(imagemin([                                        // Минификация изображений
+        imagemin.gifsicle({
+          interlaced: true
+        }),
         imagemin.optipng({                                  // Оптимизация png
           optimizationLevel: 3                              // Уровень сжатия
         }),
@@ -131,7 +134,7 @@ gulp.task('images', gulp.series('svgsprite', 'imagesmin', function (done) {
 gulp.task('copy', function () {
   return gulp.src([                                     // Что попировать
       'source/css/**/*.css',                            // Сss файлы без сжатия
-      // 'source/js/**/*.js',                              // Копируем js
+      'source/js/**/*.js',                              // Копируем js
       'source/fonts/**/*.{woff,woff2,otf,ttf}',         // Шрифты
       'source/favicon/**/*.*'                           // фавиконки
     ], {

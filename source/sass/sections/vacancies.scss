@@ -1,0 +1,134 @@
+.vacancies__wrap {
+  position: relative;
+}
+
+.vacancies {
+  // margin-bottom: 20rem;
+  margin-bottom: 0;
+}
+
+.vacancies__inner {
+  padding-top: 8vh;
+  transition: 0.3s padding-top linear;
+}
+
+.vacancies__title {
+  margin: 0;
+  margin-bottom: 30rem;
+  font-size: 42rem;
+  font-weight: 300;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.vacancies__list {
+  @include list-reset;
+  text-align: center;
+  margin-bottom: 50rem;
+}
+
+.vacancies__item {
+  font-size: 24rem;
+  font-weight: 400;
+  margin-bottom: 20rem;
+}
+
+.vacancies__link {
+  color: #000000;
+}
+
+.vacancies__list.hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.vacancies__img-side {
+  position: relative;
+  left: 50%;
+  width: 140%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.vacancies__img-side.hidden {
+  display: none;
+}
+
+
+.vacancies__inner.active {
+  padding-top: 0;
+}
+
+@media (orientation: landscape) {
+  .vacancies__wrap {
+    position: relative;
+  }
+
+  .vacancies {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    height: auto;
+    margin-bottom: 0;
+    padding-left: 150rem;
+    padding-right: 40rem;
+    text-align: left;
+  }
+
+  .vacancies__inner {
+    padding-top: 0;
+  }
+
+  .vacancies__content {
+    // width: 50%;
+    // flex-shrink: 0;
+    // display: none;
+  }
+
+  .vacancies__list {
+    margin-bottom: 0;
+  }
+
+  .vacancies__item {
+    font-size: 36rem;
+    margin-bottom: 46rem;
+  }
+
+  .vacancies__title {
+    margin-bottom: 70rem;
+    font-size: 80rem;
+    text-align: left;
+  }
+
+  .vacancies__list {
+    text-align: left;
+  }
+
+  .vacancies__link {
+    position: relative;
+    transition: 0.2s font-weight linear, 0.2s font-size linear;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: #000000;
+    }
+  }
+
+  .vacancies__img-side {
+    left: 0;
+    text-align: left;
+    width: 50%;
+    transform: translateX(0);
+  }
+
+  .vacancies__link.active {
+    font-size: 48rem;
+    font-weight: 600;
+  }
+}

@@ -2,15 +2,15 @@
   display: flex;
 
   @include list-reset;
-  font-size: 23px;
+  font-size: 23rem;
 }
 
 .languages-list__item {
-  margin: 0 5px;
+  margin: 0 5rem;
 
   a {
     display: block;
-    padding: 5px;
+    padding: 5rem;
     color: $color-text;
     opacity: 0.5;
   }
@@ -20,5 +20,19 @@
   a {
     opacity: 1;
     font-weight: 500;
+  }
+}
+
+@media (orientation: landscape) {
+  .languages-list {
+    font-size: 23px;
+  }
+
+  .languages-list__item {
+    margin: 0 5px;
+
+    a {
+      padding: 5px;
+    }
   }
 }

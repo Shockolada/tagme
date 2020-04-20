@@ -1,0 +1,159 @@
+.shop__content-desktop {
+  display: none;
+}
+
+.shop__content-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.shop__content-mobile-top {
+  margin-bottom: 60rem;
+}
+
+.shop__tagline {
+  font-size: 30rem;
+  font-weight: 400;
+  display: block;
+}
+
+.shop__main-img {
+  margin-bottom: 60rem;
+}
+
+.shop__list {
+  display: flex;
+  flex-wrap: wrap;
+  @include list-reset;
+}
+
+.shop__item {
+  width: calc(50% - 15rem);
+  margin-right: 30rem;
+  margin-bottom: 40rem;
+}
+
+.shop__item:nth-child(2n) {
+  margin-right: 0;
+}
+
+.shop__img-link {
+  font-size: 18rem;
+  font-weight: 400;
+  color: $color-text;
+
+  img {
+    width: 100%;
+    margin-bottom: 20rem;
+  }
+}
+
+.shop__content-mobile-bottom {
+  margin-top: 20rem;
+  margin-bottom: 50rem;
+
+  .shop__info {
+    p {
+      margin: 0;
+      margin-bottom: 30rem;
+      opacity: 0.54;
+    }
+  }
+}
+
+@media (min-width: $tablet_s) {
+  .shop__content-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 12%;
+  }
+
+  .shop__content-mobile {
+    display: none;
+  }
+
+  .shop__content-inner {
+    width: 360px;
+  }
+}
+
+@media (min-width: $tablet_s) and (orientation:landscape) {
+  .shop__item {
+    width: calc(100% / 3 - 20rem);
+    margin-right: 30rem;
+    margin-bottom: 40rem;
+  }
+
+  .shop__item:nth-child(2n) {
+    margin-right: 30rem;
+  }
+
+  .shop__item:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .shop__content-desktop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-left: 12%;
+  }
+
+  .shop__content-mobile {
+    display: none;
+  }
+
+  .shop__content-inner {
+    width: 360rem;
+  }
+
+  .shop__tagline {
+    font-size: 50rem;
+    margin-bottom: 30rem;
+    line-height: 1.05;
+  }
+
+  .shop__info {
+    margin-bottom: 50rem;
+
+    p {
+      margin: 0;
+      font-size: 24rem;;
+    }
+  }
+
+  .shop__products {
+    width: 45%;
+    margin-left: 40%;
+  }
+}
+
+@media (min-width: $max-width) {
+  .shop__content-desktop {
+    // z-index: -1;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .shop__content-container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 78rem;
+    padding-left: 220px;
+  }
+
+  .shop__products {
+    position: relative;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,278 @@
+.quiz {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 130rem;
+  padding-bottom: 40rem;
+  // padding: 100rem 0;
+}
+
+.quiz.scroll-mobile {
+  height: auto;
+}
+
+.quiz__content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+}
+
+.quiz__title {
+  margin: 0;
+  margin-bottom: 30rem;
+  font-size: 30rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.quiz__subtitle {
+  margin: 0;
+  // margin-bottom: 30rem;
+  font-size: 30rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.quiz__info {
+  margin-bottom: 45rem;
+  font-size: 16rem;
+}
+
+.quiz__btns {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz__btns--m-auto {
+  margin-top: auto;
+}
+.quiz__btn {
+  flex-shrink: 0;
+  font-size: 18rem;
+  align-self: center;
+}
+
+.quiz__btn-next {
+  order: 1;
+  min-width: 200px;
+}
+
+.quiz__btn-prev {
+  order: 2;
+  margin: 0;
+  margin-top: 10rem;
+  padding: 10rem;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.quiz__img-side {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  z-index: -1;
+  transform: translateX(-50%);
+  width: calc(100% - 30rem);
+  max-width: 564px;
+  opacity: 0.2;
+}
+
+.quiz__steps-counter {
+  width: 100%;
+  margin-bottom: 30rem;
+  font-size: 20rem;
+  color: #7f7f7f;
+  text-align: left;
+
+  display: none;
+}
+
+.quiz__step-info {
+  margin: 10rem 0;
+  // margin-bottom: 40rem;
+  font-size: 16rem;
+  color: #333333;
+}
+
+.quiz__check-fields {
+  margin-top: 15rem;
+  text-align: left;
+}
+
+@media (min-width: $mobile_m) {
+  // .quiz {
+  //   min-height: auto;
+  //   overflow: hidden;
+  // }
+
+}
+
+@media (orientation: landscape) {
+
+  .quiz {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 100rem;
+    padding-bottom: 100rem;
+  }
+
+  .quiz__content {
+    flex-shrink: 0;
+    width: 65%;
+    height: auto;
+    margin-bottom: 0;
+    padding-left: 150rem;
+    padding-right: 60rem;
+    text-align: left;
+  }
+
+    .quiz__content-100 {
+      width: 100%;
+    }
+
+  // .quiz__content--space-between {
+  //   display: block;
+  //   height: auto;
+
+
+  // }
+
+  .quiz__info {
+    max-width: 78%;
+    margin-bottom: 60rem;
+    font-size: 24rem;
+
+    p {
+      margin: 0;
+      font-size: 24rem;
+    }
+  }
+
+  .quiz__title {
+    margin-bottom: 50rem;
+    font-size: 64rem;
+  }
+
+  .quiz__subtitle {
+    margin-bottom: 20rem;
+    font-size: 48rem;
+  }
+
+  .quiz__btns {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40rem;
+  }
+
+  // .quiz-btns__m-100 {
+  //   margin-top: 100rem;
+  // }
+
+  .quiz__btn {
+    align-self: flex-start;
+    font-size: 22rem;
+  }
+
+  .quiz__btn-next {
+    order: 2;
+    min-width: 260rem;
+  }
+
+  .quiz__btn-prev {
+    order: 1;
+    position: relative;
+    align-self: stretch;
+    width: 110rem;
+    margin: 0;
+    margin-right: 35rem;
+    border: 2px solid #000000;
+
+    opacity: 0.2;
+    transition: 0.3s opacity linear;
+
+    span {
+      opacity: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 20rem;
+      height: 20rem;
+      border-left: 2px solid #000000;
+      border-top: 2px solid #000000;
+    }
+  }
+
+  .quiz__btn-prev:hover {
+    opacity: 1;
+  }
+
+  .quiz__img-side {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    width: auto;
+    max-width: unset;
+
+    flex-shrink: 0;
+    width: 35%;
+    height: 100%;
+    max-height: 800px;
+    margin: 0;
+    padding-right: 30rem;
+    opacity: 0.5;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .quiz__steps-counter {
+    display: block;
+    font-size: 30rem;
+  }
+
+  .quiz__step-info {
+    font-size: 24rem;
+  }
+
+  .quiz.scroll-mobile {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .quiz__check-fields {
+    margin-top: 50rem;
+  }
+
+  .quiz__check-fields--two-cols {
+    margin: 0;
+    margin-top: 20rem;
+    // margin-bottom: 20rem;
+    columns: 2;
+    column-gap: 150rem;
+
+    .form__check {
+      break-inside: avoid;
+    }
+
+    .check__box {
+      top: 0;
+    }
+  }
+}
