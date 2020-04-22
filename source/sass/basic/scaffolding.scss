@@ -62,9 +62,14 @@ img {
 }
 
 a {
-  // color: $color-text;
   text-decoration: none;
 }
 
-a:hover,
-a:focus {}
+button {
+  color: inherit;
+}
+
+svg {
+  fill: var(--color--svg);
+  transition: 0.3s fill linear;
+}

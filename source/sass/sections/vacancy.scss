@@ -55,7 +55,7 @@
       top: 0.5em;
       width: 13rem;
       height: 1px;
-      background-color: #000000;
+      background-color: var(--color--text);
     }
   }
 }
@@ -76,7 +76,8 @@
     position: relative;
     font-size: 18rem;
     font-weight: 500;
-    color: #000000;
+    color: var(--color--text);
+  transition: 0.3s color linear;
 
     &::after {
       content: "";
@@ -85,7 +86,8 @@
       left: 0;
       right: 0;
       height: 1px;
-      background-color: #000000;
+      background-color: var(--color--text);
+  transition: 0.3s background-color linear;
     }
   }
 }
@@ -96,7 +98,8 @@
 
 .vacancy__back {
   position: relative;
-  color: $color-text;
+  color: var(--color--text);
+  transition: 0.3s color linear;
 
   &::after {
     content: "";
@@ -105,7 +108,8 @@
     right: 0;
     bottom: -2px;
     height: 1px;
-    background-color: #000000;
+    background-color: var(--color--text);
+    transition: 0.3s background-color linear;
   }
 }
 
@@ -121,12 +125,11 @@
     z-index: 1;
     display: flex;
     align-items: center;
-    width: 50%;
+    width: 100%;
     right: 0;
     top: 0;
     bottom: 0;
     padding-right: 20rem;
-    background-color: #ffffff;
     text-align: left;
   }
 
@@ -141,7 +144,6 @@
 
   .vacancy__inner {
     width: 80%;
-    // max-width: 600px;
     margin: 0 auto;
     padding-bottom: 0;
   }

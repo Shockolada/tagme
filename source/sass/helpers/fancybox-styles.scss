@@ -2,8 +2,32 @@
   background-color: #000000;
 }
 
-.fancybox-is-open .fancybox-bg {
-  opacity: 0.85;
+.fancybox-is-open {
+  .fancybox-bg {
+    opacity: 0.85;
+  }
+
+  .fancybox-toolbar {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.fancybox-container {
+  .fancybox-button--close,
+  .fancybox-close-small {
+    top: 16rem;
+    right: 14rem;
+    width: 36rem;
+    height: 36rem;
+    background-color: transparent;
+    padding: 0;
+    color: #ffffff;
+
+    svg path {
+      fill: #ffffff;
+    }
+  }
 }
 
 .fancybox-content {
@@ -11,11 +35,6 @@
   position: static;
   background-color: transparent;
 
-  .fancybox-close-small {
-    svg path {
-      fill: #ffffff;
-    }
-  }
 }
 
 .fancybox-slide--video {
@@ -28,5 +47,15 @@
 @media (min-width: landscape) {
   .fancybox-slide {
     padding: 78rem;
+  }
+
+
+  .fancybox-container {
+
+    .fancybox-button--close,
+    .fancybox-close-small {
+      width: 36px;
+      height: 36px;
+    }
   }
 }

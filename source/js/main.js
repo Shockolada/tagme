@@ -1,16 +1,44 @@
+/* ADD THEME DATA TO LOCAL STORAGE */
 const THEME_KEY = 'theme';
+const BTN_COUNT_KEY = 'btn-count';
 const THEMES = {
   light: 'light',
   dark: 'dark'
 }
 let localTheme = localStorage.getItem(THEME_KEY);
-if (localTheme != null) {
-  if (localTheme === THEMES.dark) {
-    $('html').attr('data-theme-dark', 'true');
+
+if (localTheme == null) {
+  localTheme = THEMES.light
+}
+const lampBtnText = {
+  light: {
+    data: ['Хочешь романтики?', 'Клик', 'Выключи свет'],
+    count: 0,
+  },
+  dark: {
+    data: ['Нет, люблю при свете', 'Клак', 'Включи свет'],
+    count: 0,
   }
 }
+let localCount = JSON.parse(localStorage.getItem(BTN_COUNT_KEY));
+if (localCount == null) {
+  localCount = {
+    light: {
+      count: 0,
+    },
+    dark: {
+      count: 0,
+    }
+  }
+}
+lampBtnText.light.count = localCount.light.count;
+lampBtnText.dark.count = localCount.dark.count;
 
-/* Preloader */
+if (localTheme === THEMES.dark) {
+  $('html').attr('data-theme-dark', 'true');
+}
+
+/* PRELOADER */
 $(window).on('load', function () {
   setTimeout(function () {
     $('.preloader').fadeOut().fadeOut(200);
@@ -18,15 +46,15 @@ $(window).on('load', function () {
 });
 
 $(document).ready(function () {
-  var port = "port";
-  var land = "land";
-  var orientationNow = getOrientation();
+  const PORT = 'port';
+  const LAND = 'land';
+  let orientationNow = getOrientation();
 
   function getOrientation() {
     if (window.innerHeight > window.innerWidth) {
-      return port;
+      return PORT;
     } else {
-      return land;
+      return LAND;
     }
   }
 
@@ -41,13 +69,22 @@ $(document).ready(function () {
       closeActiveElement();
       $('.menu').removeClass('active');
     }
+    $(document).keydown(function (evt) {
+      if (evt.keyCode == 27) {
+        closeMenu();
+      }
+    });
   });
 
   $('.menu__overlay').click(function () {
+    closeMenu();
+  });
+
+  function closeMenu() {
     $('.menu').removeClass('active')
     $('.openMenu').removeClass('active')
     closeActiveElement();
-  });
+  }
 
   /* HEADER */
   $(window).on('scroll', function () {
@@ -58,7 +95,7 @@ $(document).ready(function () {
     }
   });
 
-  /* Languages */
+  /* LANGUAGES */
   $('.langsTrigger').click(function (evt) {
     evt.preventDefault();
     $(this).hide();
@@ -72,8 +109,24 @@ $(document).ready(function () {
     }, 200);
   });
 
-  /* Theme */
+  /* THEME */
+  changeThemeText();
+
+  function changeThemeText() {
+    let currentData = lampBtnText[localTheme];
+    $('.theme-btn span').text(currentData.data[currentData.count]);
+    if (currentData.count === currentData.data.length - 1) {
+      currentData.count = 0;
+      localCount[localTheme].count = 0;
+    } else {
+      currentData.count += 1;
+      localCount[localTheme].count += 1;
+    }
+    // localStorage.setItem(BTN_COUNT_KEY, JSON.stringify(localCount));
+  }
+
   bindClick();
+
   function bindClick() {
     $('.theme-btn--swing').one("click", function () {
       $(this).addClass('active');
@@ -87,19 +140,22 @@ $(document).ready(function () {
   $('.theme-btn').click(function (evt) {
     evt.preventDefault();
     toggleTheme();
+    changeThemeText();
   });
+
   function toggleTheme() {
-    console.log($('html').attr('data-theme-dark'))
     if ($('html').attr('data-theme-dark') != null) {
       $('html').removeAttr('data-theme-dark');
       localStorage.setItem(THEME_KEY, THEMES.light);
+      localTheme = THEMES.light;
     } else {
       $('html').attr('data-theme-dark', 'true');
       localStorage.setItem(THEME_KEY, THEMES.dark);
+      localTheme = THEMES.dark;
     }
   }
 
-  /* To top */
+  /* TO TOP */
   $('.toTop').click(function (evt) {
     evt.preventDefault();
     $('body,html').animate({
@@ -108,44 +164,31 @@ $(document).ready(function () {
     return false;
   });
 
-  /* Vacancies */
+  /* VACANCIES */
   $('.openVacancyInfo').click(function (evt) {
     evt.preventDefault();
-    $('.openVacancyInfo').removeClass('active')
-    $('.vacancy').removeClass('active')
+    $('.vacancy').removeClass('active');
+    let vacancyId = $(this).data('id');
+    let vacancyInfo = $('#' + vacancyId);
+    vacancyInfo.addClass('active');
+    $('.vacancies__wrap').addClass('active');
+    $('.openVacancyInfo').removeClass('active');
     $(this).addClass('active');
-    var vacancyId = $(this).data('id');
-    var vacancyInfo = $('#' + vacancyId);
-    if (orientationNow === port) {
-      $('.vacancies__list').addClass('hidden');
-    }
-    $('.vacancies__inner').addClass('active');
-    $('.vacancies__img-side').addClass('hidden');
-    $(this).closest('.full-screen-page').addClass('scroll-mobile')
-
-    vacancyInfo.addClass('active')
+    $(this).closest('.full-screen-page').addClass('scroll-mobile');
   });
 
   $('.hideVacancyInfo').click(function (evt) {
     evt.preventDefault();
-
+    $('.openVacancyInfo').removeClass('active');
+    $('.vacancies__wrap').removeClass('active');
     $('.vacancy').removeClass('active');
-    if (orientationNow === port) {
-      $('.vacancies__list').removeClass('hidden');
-    }
-    $('.vacancies__img-side').removeClass('hidden');
     $('.full-screen-page').animate({
       scrollTop: 0
     }, 100);
-    $(this).closest('.full-screen-page').removeClass('scroll-mobile')
-    $('.vacancies__inner').removeClass('active');
+    $(this).closest('.full-screen-page').removeClass('scroll-mobile');
   });
 
-  $(window).on("resize", function () {
-
-  });
-
-  /* Quiz steps */
+  /* QUIZ STEPS */
   $('.step .nextStep').click(function (evt) {
     evt.preventDefault();
     $('.preloader').show();
@@ -164,19 +207,90 @@ $(document).ready(function () {
     $(this).closest('.step').removeClass('active').prev('.step').addClass('active');
   })
 
-  /* Functions */
+  /* PROJECT PAGE */
+  if ($('section').is('.project') || $('div').is('.project')) {
+    $('img').bind('contextmenu', function (evt) {
+      return false;
+    });
+  }
+
+  /* SLIDERS */
+  /* Main Slider */
+  var swiper = new Swiper('#fullScreenSlider .swiper-container', {
+    direction: getDirection(),
+    initialSlide: 0,
+    spaceBetween: 0,
+    mousewheel: {
+      releaseOnEdges: true
+    },
+    speed: 700,
+    parallax: true,
+    on: {
+      resize: function () {
+        swiper.changeDirection(getDirection());
+      }
+    },
+  });
+
+  function getDirection() {
+    var windowWidth = window.innerWidth;
+    var direction = window.innerWidth <= 940 ? 'vertical' : 'horizontal';
+
+    return direction;
+  }
+
+  refreshClientsSlider();
+  $(window).on("resize", function () {
+    if (orientationNow !== getOrientation()) {
+      orientationNow = getOrientation();
+      refreshClientsSlider();
+    }
+  });
+
+  /* Clients Slider */
+  function refreshClientsSlider() {
+    if (orientationNow === PORT) {
+      if (clientsSlider != null) {
+        clientsSlider.destroy(true, true);
+      }
+      var clientsSlider = new Swiper('.clientsSlider', {
+        slidesPerView: 2,
+        slidesPerColumn: 6,
+        mousewheel: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: true,
+        },
+      });
+    } else if (orientationNow === LAND) {
+      if (clientsSlider != null) {
+        clientsSlider.destroy(true, true);
+      }
+      var clientsSlider = new Swiper('.clientsSlider', {
+        slidesPerView: 6,
+        slidesPerColumn: 3,
+        mousewheel: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: true,
+        },
+      });
+    }
+  }
+
+
+
+
+
+
+  /* FUNCTIONS */
   function openActiveElement(selector) {
-    // $('html').addClass('no-scroll');
-    // $('body').addClass('no-scroll');
     $(selector).addClass('active');
     scrollLock(selector);
   };
 
   function closeActiveElement() {
-    // compensateScrollbar('body')
     $('.overlay').removeClass('active');
-    // $('html').removeClass('no-scroll');
-    // $('body').removeClass('no-scroll');
     bodyScrollLock.clearAllBodyScrollLocks();
   };
 
@@ -184,22 +298,16 @@ $(document).ready(function () {
     return bodyScrollLock.disableBodyScroll(document.querySelector(selector));
   }; // iOS blocking body scroll function.
 
-  // function isMobile() {
-  //   var isMobile = false;
-  //   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  //     isMobile = true
-  //   }
-  //   return isMobile
-  // }
+  function isMobile() {
+    let isMobile = false;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      isMobile = true
+    }
+    return isMobile
+  }
 
-  // if (isMobile()) {
-  // }
-
-
-  // console.log(isMobile())
-
-  // function compensateScrollbar(selector) {
-  //   var scrollWidth = (window.innerWidth - document.documentElement.clientWidth);
-  //   selector.css('padding','+scrollWidth+')
-  // }
+  function compensateScrollbar(selector) {
+    let scrollWidth = (window.innerWidth - document.documentElement.clientWidth);
+    selector.css('padding-right', scrollWidth)
+  }
 });

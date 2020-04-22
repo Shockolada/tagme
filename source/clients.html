@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-page="clients">
+<html lang="ru" data-page="light-only">
 
 @@include('./html-partials/basic/head.html')
 
@@ -100,51 +100,51 @@
   <script src="js/main.js"></script>
 
   <script>
-    $(document).ready(function () {
-      var port = "port";
-      var land = "land";
-      var orientationNow = getOrientation();
+    // $(document).ready(function () {
+    //   var port = "port";
+    //   var land = "land";
+    //   var orientationNow = getOrientation();
 
-      function getOrientation() {
-        if (window.innerHeight > window.innerWidth) {
-          return port;
-        } else {
-          return land;
-        }
-      }
+    //   function getOrientation() {
+    //     if (window.innerHeight > window.innerWidth) {
+    //       return port;
+    //     } else {
+    //       return land;
+    //     }
+    //   }
 
-      refreshSlider();
-      $(window).on("resize", function () {
-        if (orientationNow !== getOrientation()) {
-          orientationNow = getOrientation();
-          refreshSlider();
-        }
-      });
+    //   refreshSlider();
+    //   $(window).on("resize", function () {
+    //     if (orientationNow !== getOrientation()) {
+    //       orientationNow = getOrientation();
+    //       refreshSlider();
+    //     }
+    //   });
 
-      function refreshSlider() {
-        if (orientationNow === port) {
-          $('.swiper-slide, .swiper-wrapper').attr('style', '')
-          if (clientsSlider != null) {
-            clientsSlider.destroy(true, true);
-          }
-          var clientsSlider = new Swiper('.swiper-container', {
-            slidesPerView: 2,
-            slidesPerColumn: 6,
-            mousewheel: true,
-          });
-        } else if (orientationNow === land) {
-          if (clientsSlider != null) {
-            clientsSlider.destroy(true, true);
-          }
-          $('.swiper-slide, .swiper-wrapper').attr('style', '');
-          var clientsSlider = new Swiper('.swiper-container', {
-            slidesPerView: 6,
-            slidesPerColumn: 3,
-            mousewheel: true,
-          });
-        }
-      }
-    });
+    //   function refreshSlider() {
+    //     if (orientationNow === port) {
+    //       $('.swiper-slide, .swiper-wrapper').attr('style', '')
+    //       if (clientsSlider != null) {
+    //         clientsSlider.destroy(true, true);
+    //       }
+    //       var clientsSlider = new Swiper('.swiper-container', {
+    //         slidesPerView: 2,
+    //         slidesPerColumn: 6,
+    //         mousewheel: true,
+    //       });
+    //     } else if (orientationNow === land) {
+    //       if (clientsSlider != null) {
+    //         clientsSlider.destroy(true, true);
+    //       }
+    //       $('.swiper-slide, .swiper-wrapper').attr('style', '');
+    //       var clientsSlider = new Swiper('.swiper-container', {
+    //         slidesPerView: 6,
+    //         slidesPerColumn: 3,
+    //         mousewheel: true,
+    //       });
+    //     }
+    //   }
+    // });
 
   </script>
 

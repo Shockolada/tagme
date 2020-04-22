@@ -15,6 +15,8 @@
 }
 
 .quiz__content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -76,9 +78,10 @@
 
 .quiz__img-side {
   position: absolute;
+  z-index: 1;
   top: 55%;
   left: 50%;
-  z-index: -1;
+  // z-index: -1;
   transform: translateX(-50%);
   width: calc(100% - 30rem);
   max-width: 564px;
@@ -105,14 +108,6 @@
 .quiz__check-fields {
   margin-top: 15rem;
   text-align: left;
-}
-
-@media (min-width: $mobile_m) {
-  // .quiz {
-  //   min-height: auto;
-  //   overflow: hidden;
-  // }
-
 }
 
 @media (orientation: landscape) {
@@ -222,6 +217,7 @@
 
   .quiz__img-side {
     position: static;
+    z-index: 1;
     top: 0;
     left: 0;
     transform: translateX(0);

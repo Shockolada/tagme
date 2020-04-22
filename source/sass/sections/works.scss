@@ -45,18 +45,17 @@
 }
 
 @media (min-width: $tablet) {
-
   .works__img,
   .works__bg {
     height: 300px;
   }
 }
 
-@media (min-width: $desktop_xs) {
-  .works__list {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+// @media (min-width: $desktop_xs) {
+//   .works__list {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+// }
 
 @media (min-width: $tablet_s) and (orientation: landscape) {
   .works {
@@ -70,6 +69,7 @@
     margin-right: - 30rem;
     width: 90%;
     max-width: 1460px;
+    gap: 0;
   }
 
   .works__item {

@@ -50,11 +50,12 @@
 .button-glitch__inner {
   display: block;
   padding: 15rem 20rem;
-  background: #fff;
+  background: #ffffff;
+  background: var(--color--white);
   -webkit-transition: -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 0.3s background-color 0s linear, 0.3s color 0s linear;
 }
 
 .button-glitch--0 {
@@ -72,13 +73,13 @@
   }
 }
 
-.button-glitch--0:hover {
-  .button-glitch__inner {
-    background: #000000;
-  }
+// .button-glitch--0:hover {
+//   .button-glitch__inner {
+//     background: #000000;
+//   }
 
-  &::before,
-  &::after {
-    opacity: 1;
-  }
-}
+//   &::before,
+//   &::after {
+//     opacity: 1;
+//   }
+// }
